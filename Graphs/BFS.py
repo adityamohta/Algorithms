@@ -15,7 +15,7 @@ class Graph:
         self.graph[u].append(v)
 
     # function to print BFS of graph. here s is source node.
-    def BFS(self, s):
+    def bfs(self, s):
 
         # Mark all vertices as not visited
         visited = [False] * len(self.graph)
@@ -45,8 +45,7 @@ if __name__ == '__main__':
     g.add_edge(1, 2)
     g.add_edge(2, 0)
     g.add_edge(2, 3)
-    g.add_edge(3, 4)
-    g.add_edge(4, 4)
+    g.add_edge(3, 3)
 
     print "Following is Breadth First Traversal (starting from vertex 2)"
-    g.BFS(2)
+    g.bfs(2)
