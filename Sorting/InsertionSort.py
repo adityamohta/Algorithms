@@ -1,4 +1,5 @@
 """
+    ---------- Insertion Sort ----------
     1. Start Picking Elements one by one from the left.
     2. Shift all those elements by one position to the right which 
        are greater then the current element and are on left side of it.
@@ -10,7 +11,9 @@
         worst case      -   O(n^2)
     
     Insertion Sort is a STABLE sorting algorithm, i.e. if it encounters 2 equal values, 
-    it doesn't change its initial order after sorting.
+    it doesn't change its initial order after sorting
+    
+    Insertion Sort is In-place i.e. constant space complexity
 """
 from Array import array
 
