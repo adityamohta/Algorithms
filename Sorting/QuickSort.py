@@ -13,43 +13,43 @@
 from Array import array
 
 
-def partition(array, begin, end, pivot_type="start"):
+def partition(arr, begin, end, pivot_type="start"):
     if pivot_type == "start":
-        pivotIndex = begin
+        pivot_index = begin
         for i in xrange(begin + 1, end + 1):
-            if array[i] <= array[begin]:
-                pivotIndex += 1
-                array[i], array[pivotIndex] = array[pivotIndex], array[i]
-        array[pivotIndex], array[begin] = array[begin], array[pivotIndex]
-        return pivotIndex
+            if arr[i] <= arr[begin]:
+                pivot_index += 1
+                arr[i], arr[pivot_index] = arr[pivot_index], arr[i]
+        arr[pivot_index], arr[begin] = arr[begin], arr[pivot_index]
+        return pivot_index
 
     elif pivot_type == "end":
-        pivotIndex = begin
+        pivot_index = begin
         for i in xrange(begin, end):
-            if array[i] <= array[end]:
-                array[i], array[pivotIndex] = array[pivotIndex], array[i]
-                pivotIndex += 1
-        array[pivotIndex], array[end] = array[end], array[pivotIndex]
-        return pivotIndex
+            if arr[i] <= arr[end]:
+                arr[i], arr[pivot_index] = arr[pivot_index], arr[i]
+                pivot_index += 1
+        arr[pivot_index], arr[end] = arr[end], arr[pivot_index]
+        return pivot_index
 
     else:
         raise Exception("Enter a valid pivot_type")
 
 
-def quicksort(array, begin=0, end=None):
+def quick_sort(arr, begin=0, end=None):
     if end is None:
-        end = len(array) - 1
+        end = len(arr) - 1
 
-    def _quicksort(array, begin, end):
+    def _quick_sort(arr, begin, end):
         if begin < end:
-            pivot = partition(array, begin, end, pivot_type="start")
-            _quicksort(array, begin, pivot - 1)
-            _quicksort(array, pivot + 1, end)
+            pivot = partition(arr, begin, end, pivot_type="start")
+            _quick_sort(arr, begin, pivot - 1)
+            _quick_sort(arr, pivot + 1, end)
 
-    return _quicksort(array, begin, end)
+    return _quick_sort(array, begin, end)
 
 
 if __name__ == '__main__':
-    print "Unsorted Array : ", array
-    quicksort(array)
-    print "Sorted Array : ", array
+    print "Unsorted array : ", array
+    quick_sort(array)
+    print "Sorted array : ", array

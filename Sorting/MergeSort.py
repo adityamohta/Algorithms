@@ -49,15 +49,20 @@ def merge(arr, start, mid, end):
         k += 1
 
 
-def merge_sort(arr, start, end):
+def merge_sort(arr, start=0, end=None):
+    if end is None:
+        end = len(arr) - 1
 
-    if start < end:
-        mid = int((start + end) / 2)  # middle position.
+    def _merge_sort(arr, start, end):
+        if start < end:
+            mid = int((start + end) / 2)  # middle position.
 
-        # Sort first and second halves
-        merge_sort(arr, start, mid)
-        merge_sort(arr, mid + 1, end)
-        merge(arr, start, mid, end)
+            # Sort first and second halves
+            _merge_sort(arr, start, mid)
+            _merge_sort(arr, mid + 1, end)
+            merge(arr, start, mid, end)
+
+    _merge_sort(arr, start, end)
 
 
 if __name__ == '__main__':
