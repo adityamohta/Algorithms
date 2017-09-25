@@ -46,6 +46,5 @@ if __name__ == '__main__':
     g.add_edge(2, 0)
     g.add_edge(2, 3)
     g.add_edge(3, 3)
-
     print "Following is Breadth First Traversal (starting from vertex 2)"
     g.bfs(2)
